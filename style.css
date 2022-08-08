@@ -1,0 +1,34 @@
+body {
+    padding: 0;
+    margin: 0;
+    min-width: 100vh;
+    background-color: hsl(352, 45%, 87%);
+    height: auto;
+}
+
+.container-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    margin: 9em 0;
+    border: 1px solid pink;
+    min-width: 980px;
+    min-height: 980px;
+    display: grid;
+
+        /* 1 fr bo dzieli na równe jednostki */
+    grid-template-columns: repeat(64, 1fr); 
+    grid-template-rows: repeat(64, 1fr);
+}
+
+.container div {
+    border: 1px solid rgb(161, 22, 106);
+}
+
+.pixel {
+    background-color: lightslategray;
+}
