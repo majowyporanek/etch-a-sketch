@@ -1,5 +1,5 @@
 const container = document.querySelector('.container'); 
-
+let numberOfSquares = 64;
 
 
 
@@ -39,11 +39,21 @@ function howManySquares() {
 }
 
 
+
 function generateGrid() {
-    let numberOfSquares = howManySquares(); // numbers of squares per side
+    numberOfSquares = howManySquares(); // numbers of squares per side
     let toRemove = document.querySelectorAll('.square');
-    toRemove.forEach((r) => r.remove());
+    toRemove.forEach((r) => r.remove()); //removing an old grid
+
+    //creating a new grid:
+    for(let i = 0; i < (numberOfSquares*numberOfSquares); i++){
+        const con  = document.createElement('div');
+        con.setAttribute("class", "square");
+        container.appendChild(con);
+    }
+   container.style.setProperty('--numberOfSquares', numberOfSquares);
 }
+
 
 btn.addEventListener('click', generateGrid);
 

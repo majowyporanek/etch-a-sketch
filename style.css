@@ -1,3 +1,7 @@
+:root {
+    --numberOfSquares: 64;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -45,11 +49,27 @@ button {
     min-width: 980px;
     min-height: 980px;
     display: grid;
+    grid-template-columns: repeat( var(--numberOfSquares), 1fr); 
+    grid-template-rows: repeat(var(--numberOfSquares), 1fr);
+}
+
+
+.container-after-change {
+    margin: 9em 0;
+    margin-top: 0;
+    border: 1px solid pink;
+    min-width: 980px;
+    min-height: 980px;
+    display: grid;
 
         /* 1 fr bo dzieli na równe jednostki */
-    grid-template-columns: repeat(64, 1fr); 
-    grid-template-rows: repeat(64, 1fr);
+    /* grid-template-columns: repeat(64, 1fr); 
+    grid-template-rows: repeat(64, 1fr); */
+
+    grid-template-columns: repeat( var(--numberOfSquares), 1fr); 
+    grid-template-rows: repeat(var(--numberOfSquares), 1fr);
 }
+
 
 .container div {
     border: 1px solid rgb(161, 22, 106);
