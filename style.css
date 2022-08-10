@@ -1,5 +1,6 @@
 :root {
     --numberOfSquares: 64;
+    --colorToDraw: lightslategrey;
 }
 
 body {
@@ -29,7 +30,6 @@ h1 {
 }
 
 p {
-    border: 1px solid black;
     margin-bottom: .5em;
     font-size: 2em;
 }
@@ -43,8 +43,8 @@ button {
 }
 
 .container {
-    margin: 9em 0;
     margin-top: 0;
+    margin-bottom: 2em;
     border: 1px solid pink;
     min-width: 980px;
     min-height: 980px;
@@ -63,9 +63,6 @@ button {
     display: grid;
 
         /* 1 fr bo dzieli na równe jednostki */
-    /* grid-template-columns: repeat(64, 1fr); 
-    grid-template-rows: repeat(64, 1fr); */
-
     grid-template-columns: repeat( var(--numberOfSquares), 1fr); 
     grid-template-rows: repeat(var(--numberOfSquares), 1fr);
 }
@@ -76,5 +73,33 @@ button {
 }
 
 .pixel {
-    background-color: lightslategray;
+    background-color: var(--colorToDraw);
 }
+
+.color-picker {
+    border: 1px solid black;
+}
+
+.options {
+    border: 1px solid black;
+    display: flex;
+    gap: 25em;
+}
+
+.btn, .color-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.remove{
+    margin: 0;
+}
+
+label,.remove {
+    font-size: 1.5em;
+}
+/* .square {
+    border: 1px solid rgb(161, 22, 106);
+} */
