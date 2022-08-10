@@ -1,10 +1,3 @@
-const container = document.querySelector('.container'); 
-let numberOfSquares = 64;
-
-let colorPicker = document.querySelector("#colorpicker");
-let color = colorPicker.value;
-
-
 //function to get a chosen color
 function getColor() {
     document.querySelector("#colorpicker").onchange = e => {
@@ -12,6 +5,18 @@ function getColor() {
     }
     return color;
 }
+
+
+
+
+const container = document.querySelector('.container'); 
+let numberOfSquares = 64;
+
+let colorPicker = document.querySelector("#colorpicker");
+let color = colorPicker.value;
+color = getColor();
+
+
 
 
 //creating divs
@@ -30,8 +35,8 @@ function addDraw(i) {
     i.forEach((el) => {
         el.addEventListener('mouseover', (event) => {
             let pixelClass = document.querySelectorAll('.pixel');
-            pixelClass.forEach((p)=> p.style.setProperty('--colorToDraw', color));
             el.setAttribute("class", "pixel");
+            pixelClass.forEach((pixel)=> pixel.style.setProperty('--colorToDraw',getColor()))
         });
     });
 }
@@ -40,13 +45,17 @@ function addDraw(i) {
 addDraw(pixels);
 
 
-
 //function to clear the drawing
 function removeDraw() {
+    // style="--colorToDraw:#0000ff;"
+    let styled = document.querySelectorAll('.pixel[style]'); //get inlined styled elements in order to remove them
+    styled.forEach((s)=> {s.removeAttribute('style')}) 
+    
+
     let colored = document.querySelectorAll('.pixel');
     colored.forEach((el) => {
+            el.classList.add('removedDraw');
             el.classList.toggle('pixel');
-            console.log("removed ");
     });   
 }
 
@@ -69,14 +78,20 @@ function howManySquares() {
 
 
 
-function generateGrid() { ;   
+function generateGrid() { 
+    elementsToToggle = document.querySelectorAll('.removedDraw');
+    elementsToToggle.forEach((e) => e.classList.toggle('pixel'));   
     numberOfSquares = howManySquares(); // numbers of squares per side
     let toRemove = document.querySelectorAll('.square');
     let toRemove2 = document.querySelectorAll('.pixel');
-    // toRemove.forEach(((r)=>r.style.border = "none"));
+   
     toRemove.forEach((r) => 
-        r.remove()); //removing an old grid
-    toRemove2.forEach((r)=> r.remove());
+        r.remove()); 
+        
+        //removing an old grid
+    toRemove2.forEach((r)=> {
+        r.remove()
+    });
 
     //creating a new grid:
     for(let i = 0; i < (numberOfSquares*numberOfSquares); i++){
@@ -91,4 +106,11 @@ function generateGrid() { ;
 }
 
 btn.addEventListener('click', generateGrid);
+
+//button to remove a draw:
+const removeButton = document.querySelector(".btn");
+let elementsToToggle;
+removeButton.addEventListener('click', () => {
+    removeDraw();
+});
 
