@@ -1,18 +1,23 @@
 :root {
     --numberOfSquares: 64;
     --colorToDraw: lightslategrey;
+    --bgColor: #ecbbf3;
+    --h1Color:#ac18c2;
+    --pColor: #ac18c2;
+    --squaresColor: #cc49df;
 }
 
 body {
+    font-family: 'VT323', monospace;
     padding: 0;
     margin: 0;
     min-width: 100vh;
-    background-color: hsl(352, 45%, 87%);
+    background-color: var(--bgColor);
     height: auto;
 }
 
 .container-1{
-    padding: 2em 0;
+    padding: 3em 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,28 +29,44 @@ body {
 
 h1 {
     font-size: 5em;
-    margin-bottom: 0;
     margin: 0;
     padding: 0;
 }
 
 p {
-    margin-bottom: .5em;
-    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    /* margin-bottom: .5em; */
+    font-size: 2.5em;
 }
 
 button {
-    font-size: 2em;
+    font-size: 1.5em;
+    background-color: #f9e8fb;
     border-radius: 50%;
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
     margin: 0;
+    /* margin-bottom: 1em; */
+    border: none;
 }
 
+button:hover {
+    background-color: #d976e7;
+}
+
+button:active {
+    background-color: #861397;
+}
+.decision {
+    margin-bottom: .8em;
+}
+
+
 .container {
-    margin-top: 0;
-    margin-bottom: 2em;
-    border: 1px solid pink;
+    margin-top: 2em 0;
+    border: 2.5em solid #d976e7;
+    border-radius:20px;
     min-width: 980px;
     min-height: 980px;
     display: grid;
@@ -69,19 +90,15 @@ button {
 
 
 .container div {
-    border: 1px solid rgb(161, 22, 106);
+    border: 1px solid #861397;
 }
 
 .pixel {
     background-color: var(--colorToDraw);
 }
 
-.color-picker {
-    border: 1px solid black;
-}
 
 .options {
-    border: 1px solid black;
     display: flex;
     gap: 25em;
 }
@@ -98,7 +115,7 @@ button {
 }
 
 label,.remove {
-    font-size: 1.5em;
+    font-size: 2em;
 }
 /* .square {
     border: 1px solid rgb(161, 22, 106);
