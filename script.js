@@ -1,3 +1,16 @@
+//function to set a theme
+function setTheme() {
+    const root = document.documentElement;
+    const newTheme = root.className === 'dark' ? 'light' : 'dark';
+
+    root.className = newTheme;
+}
+
+const toggleButton = document.querySelector('.toggle-button');
+toggleButton.addEventListener('click', setTheme);
+
+
+
 //function to get a chosen color
 function getColor() {
     document.querySelector("#colorpicker").onchange = e => {
@@ -40,6 +53,26 @@ function addDraw(i) {
         });
     });
 }
+//STILL WORKING ON IT
+// function stopDrawing(i){
+//     i.forEach((el) => {
+//         el.removeEventListener('mouseover', (event) => {
+//             let pixelClass = document.querySelectorAll('.pixel');
+//             el.setAttribute("class", "pixel");
+//             pixelClass.forEach((pixel)=> pixel.style.setProperty('--colorToDraw',getColor()))
+//         });
+//     });
+// }
+
+//STILL WORKING ON IT
+// function eraseDraw(i) {
+//     i.forEach((el)=> {
+//         // add a new event listener 
+//         el.addEventListener('mouseover', (event)=> {
+//         el.setAttribute("class", "erase");
+//         });
+//     });
+// }
 
 //adding
 addDraw(pixels);
@@ -79,8 +112,11 @@ function howManySquares() {
 
 
 function generateGrid() { 
+    
     elementsToToggle = document.querySelectorAll('.removedDraw');
-    elementsToToggle.forEach((e) => e.classList.toggle('pixel'));   
+    elementsToToggle.forEach((e) => e.classList.toggle('pixel')); 
+    
+    
     numberOfSquares = howManySquares(); // numbers of squares per side
     let toRemove = document.querySelectorAll('.square');
     let toRemove2 = document.querySelectorAll('.pixel');
@@ -114,3 +150,13 @@ removeButton.addEventListener('click', () => {
     removeDraw();
 });
 
+
+//STILL WORKING ON IT
+// //erase:
+// const eraseBtn = document.querySelector('.erase-draw');
+
+// eraseBtn.addEventListener('click', () => {
+//     let cleanPixels = document.querySelectorAll('container>div');
+//     eraseDraw(cleanPixels);
+
+// });

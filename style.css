@@ -1,9 +1,35 @@
 :root {
     --numberOfSquares: 64;
     --colorToDraw: lightslategrey;
-    --bgColor: #ecbbf3;
-    --h1Color:#ac18c2;
-    --pColor: #ac18c2;
+    --bgColor:#ffeffc;
+    --h1Color: #665162;
+    --pColor: #332831;
+    --btn-color:#b38dab;
+    --btn-hover:#cca2c3;
+    --btn-active: #e6b6dc;
+    --squaresColor: #cc49df;
+} 
+:root.light {
+    --numberOfSquares: 64;
+    --colorToDraw: lightslategrey;
+    --bgColor:#ffeffc;
+    --h1Color: #665162;
+    --pColor: #332831;
+    --btn-color:#b38dab;
+    --btn-hover:#cca2c3;
+    --btn-active: #e6b6dc;
+    --squaresColor: #cc49df;
+} 
+
+:root.dark {
+    --numberOfSquares: 64;
+    --colorToDraw: lightslategrey;
+    --bgColor:#332831;
+    --h1Color: #ffeffc;
+    --pColor: #f9ecf6;
+    --btn-color: #f2d9ed;
+    --btn-hover:#f5e0f0;
+    --btn-active: #f9ecf6;
     --squaresColor: #cc49df;
 }
 
@@ -28,21 +54,22 @@ body {
 /* typography */
 
 h1 {
+    color: var(--h1Color);
     font-size: 5em;
     margin: 0;
     padding: 0;
 }
 
-p {
+p,label {
+    color: var(--pColor);
     margin: 0;
     padding: 0;
-    /* margin-bottom: .5em; */
     font-size: 2.5em;
 }
 
 button {
     font-size: 1.5em;
-    background-color: #f9e8fb;
+    background-color: var(--btn-color);
     border-radius: 50%;
     width: 1.5em;
     height: 1.5em;
@@ -52,11 +79,11 @@ button {
 }
 
 button:hover {
-    background-color: #d976e7;
+    background-color: var(--btn-hover);
 }
 
 button:active {
-    background-color: #861397;
+    background-color:var(--btn-active);
 }
 .decision {
     margin-bottom: .8em;
@@ -65,7 +92,7 @@ button:active {
 
 .container {
     margin-top: 2em 0;
-    border: 2.5em solid #d976e7;
+    border: 2.5em solid var(--btn-color);
     border-radius:20px;
     min-width: 980px;
     min-height: 980px;
@@ -90,20 +117,24 @@ button:active {
 
 
 .container div {
-    border: 1px solid #861397;
+    border: 1px solid var(--h1Color);
 }
 
 .pixel {
     background-color: var(--colorToDraw);
 }
 
+/* .erase {
+    background-color: var(--bgColor);
+} */
+
 
 .options {
     display: flex;
-    gap: 25em;
+    gap: 8em;
 }
 
-.btn, .color-picker {
+.btn, .color-picker, .toggle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,7 +145,7 @@ button:active {
     margin: 0;
 }
 
-label,.remove {
+label,.remove, .toggle-theme {
     font-size: 2em;
 }
 /* .square {
